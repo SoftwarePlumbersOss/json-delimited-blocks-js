@@ -22,6 +22,8 @@
     "jest": "^26.0.1"
   },
   "dependencies": {
-    "bass-clarinet": "^0.51.4"
+    "bass-clarinet": "^0.51.4",
+    "cross-blob": "^1.2.2",
+    "text-encoding": "^0.7.0"
   }
 }
