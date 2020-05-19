@@ -1,0 +1,27 @@
+{
+  "name": "json-delimited-blocks",
+  "version": "0.0.1",
+  "description": "A simple streaming format of json blocks interleaved with binary data",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://projects.softwareplumbers.com/common-javascript/json-delimited-blocks.git"
+  },
+  "keywords": [
+    "streaming",
+    "json",
+    "binary",
+    "records"
+  ],
+  "author": "Jonathan Essex",
+  "license": "SEE LICENSE IN LICENSE.TXT",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "bass-clarinet": "^0.51.4"
+  }
+}
