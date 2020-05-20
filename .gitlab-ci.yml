@@ -4,7 +4,6 @@ image:
   
 stages:
   - init
-  - build
   - test
   - deploy
 
@@ -21,11 +20,6 @@ login:
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public/
     - npm-cli-login 
     - cp ~/.npmrc .npmrc 
-
-install_dependencies:
-  stage: build
-  script:
-    - cat .npmrc
     - npm install
 
 testing:
@@ -38,7 +32,7 @@ publish:
   only: 
     - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
   script:
-    - cat $HOME/.npmrc
+    - cat .npmrc
     - npm version --no-git-tag-version ${CI_COMMIT_REF_NAME} 
     - npm publish
    
