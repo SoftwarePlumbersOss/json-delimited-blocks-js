@@ -16,10 +16,11 @@ cache:
 login:
   stage: init
   script:
+    - echo ${CI_PROJECT_DIR}
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
-    - npm-cli-login --config-path=${CI_PROJECT_DIR} -r https://nexus.softwareplumbers.com/repository/npmjs-public/
-    - npm-cli-login --config-path=${CI_PROJECT_DIR}
-    - find . -name ".npmrc" -ls
+    - npm-cli-login --config-path=${CI_PROJECT_DIR}/ -r https://nexus.softwareplumbers.com/repository/npmjs-public/
+    - npm-cli-login --config-path=${CI_PROJECT_DIR}/
+    - ls -la ${CI_PROJECT_DIR}
 
 install_dependencies:
   stage: build
