@@ -21,19 +21,18 @@ install_dependencies:
   stage: build
   script:
     - npm install
-  artifacts:
-    paths:
-      - node_modules/
 
 testing:
   stage: test
-  script: npm test
+  script: 
+    - npm test
   
 publish:
   stage: deploy
   only: 
     - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
   script:
+    - npm-cli-login
     - npm version --no-git-tag-version ${CI_COMMIT_REF_NAME} 
     - npm publish
    
