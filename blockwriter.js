@@ -41,27 +41,27 @@ class BlockWriter {
     constructor(callback, encoding) {
         this.encoding = encoding;
         this.callback = callback;
-        this.sink = createHeaderSink(hdr=>this.receiveHeader(hdr), this.encoding)
+        this.sink = createHeaderSink(hdr=>this.receiveHeader(hdr), this.encoding);
     }
     
     receiveHeader(header) {
-        console.log("header ", header);
+        //console.log("header ", header);
         this.header = header;
         this.sink = createBodySink(bdy=>this.receiveBody(bdy), this.header.length);
     }
     
     receiveBody(body) {
-        console.log("body ", body);
+        //console.log("body ", body);
         this.callback(this.header, body);
         this.sink = createHeaderSink(hdr=>this.receiveHeader(hdr), this.encoding);
     }
     
     write(chunk, controller) {
-        console.log("begin chunk length ", chunk.length);
+        //console.log("begin chunk length ", chunk.length);
         let count = 0;
         while (count < chunk.length) {
             count += this.sink.write(chunk.slice(count));
-            console.log("at", count);
+            //console.log("at", count);
         }        
     }
     
