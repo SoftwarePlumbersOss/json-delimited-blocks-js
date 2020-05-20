@@ -1,28 +1,28 @@
-  image: ${DOCKER_REPO}/softwareplumbers/react-node-centos:0.0.7
+image: ${DOCKER_REPO}/softwareplumbers/react-node-centos:0.0.7
 
-    stages:
-      - init
-      - build
-      - test
+stages:
+  - init
+  - build
+  - test
 
-    cache:
-      paths:
-        - node_modules/
-        - ~/.npmrc
+cache:
+  paths:
+    - node_modules/
+    - ~/.npmrc
 
-    login:
-      stage: init
-      script:
-        - npm-cli-login
+login:
+  stage: init
+  script:
+    - npm-cli-login
 
-    install_dependencies:
-      stage: build
-      script:
-        - npm install
-      artifacts:
-        paths:
-          - node_modules/
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
 
-    testing_testing:
-      stage: test
-      script: npm test
+testing_testing:
+  stage: test
+  script: npm test
