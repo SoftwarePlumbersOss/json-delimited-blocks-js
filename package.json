@@ -1,6 +1,6 @@
 {
   "name": "json-delimited-blocks",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "description": "A simple streaming format of json blocks interleaved with binary data",
   "main": "index.js",
   "scripts": {
