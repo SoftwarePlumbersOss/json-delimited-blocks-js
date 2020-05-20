@@ -3,6 +3,8 @@ image:
   entrypoint: ["/bin/bash", "-l", "-c"]
   
 stages:
+  - init
+  - build
   - test
   - deploy
 
