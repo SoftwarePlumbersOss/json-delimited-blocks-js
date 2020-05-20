@@ -17,8 +17,8 @@ login:
   stage: init
   script:
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
-    - npm-cli-login path="." -r https://nexus.softwareplumbers.com/repository/npmjs-public/
-    - npm-cli-login path="."
+    - npm-cli-login --config-path="." -r https://nexus.softwareplumbers.com/repository/npmjs-public/
+    - npm-cli-login --config-path="."
     - find . -name ".npmrc" -ls
 
 install_dependencies:
