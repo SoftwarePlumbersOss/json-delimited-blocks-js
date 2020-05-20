@@ -1,16 +1,16 @@
 image: 
-  name: ${DOCKER_REPO}/softwareplumbers/react-node-centos:0.0.7
+  name: httpssoftwareplumbers/react-node-centos:0.0.7
   entrypoint: ["/bin/bash", "-l", "-c"]
   
 stages:
   - init
   - build
   - test
+  - deploy
 
 cache:
   paths:
     - node_modules/
-    - ~/.npmrc
 
 login:
   stage: init
@@ -25,6 +25,15 @@ install_dependencies:
     paths:
       - node_modules/
 
-testing_testing:
+testing:
   stage: test
   script: npm test
+  
+publish:
+  stage: deploy
+  only: 
+    - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
+  script:
+    - npm version from-git
+    - npm publish
+   
