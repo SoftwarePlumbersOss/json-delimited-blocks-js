@@ -34,6 +34,6 @@ publish:
   only: 
     - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
   script:
-    - npm version from-git
+    - npm version from-git --no-git-tag-version
     - npm publish
    
