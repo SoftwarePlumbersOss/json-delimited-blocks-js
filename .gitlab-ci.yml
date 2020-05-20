@@ -3,8 +3,6 @@ image:
   entrypoint: ["/bin/bash", "-l", "-c"]
   
 stages:
-  - init
-  - build
   - test
   - deploy
 
@@ -17,14 +15,14 @@ login:
   stage: init
   script:
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
-    - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public/
-    - npm-cli-login
-    - cat $HOME/.npmrc
+    - npm-cli-login path="." -r https://nexus.softwareplumbers.com/repository/npmjs-public/
+    - npm-cli-login path="."
+    - cat .npmrc
 
 install_dependencies:
   stage: build
   script:
-    - cat $HOME/.npmrc
+    - cat .npmrc
     - npm install
 
 testing:
