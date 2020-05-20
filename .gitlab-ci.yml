@@ -19,7 +19,7 @@ login:
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
     - npm-cli-login path="." -r https://nexus.softwareplumbers.com/repository/npmjs-public/
     - npm-cli-login path="."
-    - cat .npmrc
+    - find . -name ".npmrc" -ls
 
 install_dependencies:
   stage: build
