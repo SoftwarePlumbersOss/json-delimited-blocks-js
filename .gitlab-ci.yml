@@ -1,5 +1,5 @@
 image: 
-  name: httpssoftwareplumbers/react-node-centos:0.0.7
+  name: ${DOCKER_REPO}/softwareplumbers/react-node-centos:0.0.7
   entrypoint: ["/bin/bash", "-l", "-c"]
   
 stages:
