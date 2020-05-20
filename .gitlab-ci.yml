@@ -15,11 +15,14 @@ cache:
 login:
   stage: init
   script:
+    - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
+    - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public/
     - npm-cli-login
 
 install_dependencies:
   stage: build
   script:
+    - cat $HOME/.npmrc
     - npm install
 
 testing:
@@ -32,8 +35,6 @@ publish:
   only: 
     - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
   script:
-    - npm-cli-login
-    - echo $HOME
     - cat $HOME/.npmrc
     - npm version --no-git-tag-version ${CI_COMMIT_REF_NAME} 
     - npm publish
