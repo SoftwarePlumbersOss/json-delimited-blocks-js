@@ -11,6 +11,7 @@ stages:
 cache:
   paths:
     - node_modules/
+    - $HOME/.npmrc
 
 login:
   stage: init
