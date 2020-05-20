@@ -33,6 +33,8 @@ publish:
     - /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
   script:
     - npm-cli-login
+    - echo $HOME
+    - cat $HOME/.npmrc
     - npm version --no-git-tag-version ${CI_COMMIT_REF_NAME} 
     - npm publish
    
