@@ -24,6 +24,7 @@ login:
     - npm-cli-login 
     - cp ~/.npmrc .npmrc 
     - cat .npmrc
+    - npm cache clean --force
     - npm install
 
 testing:
