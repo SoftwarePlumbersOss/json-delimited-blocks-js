@@ -13,6 +13,9 @@ cache:
 
 build:
   stage: test
+  artifacts:
+    paths:
+      - .npmrc
   script:
     - echo ${CI_PROJECT_DIR}
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
