@@ -9,11 +9,14 @@
 
 const { BlockWriter } = require("../../index.js");
 const { getFile } = require("./utils.js");
-const { WritableStream } = require("web-streams-polyfill/ponyfill")
+const { WritableStream } = require("web-streams-polyfill/ponyfill");
+const Blob = require("cross-blob");
 
 function readAll(data) {
     let blocks = [];
-    let  callback = (header, blob) => { blocks.push({header, blob}); };
+    let  callback = (header, chunks) => { 
+        blocks.push({header, blob: new Blob(chunks)}); 
+    };
     let writer = new BlockWriter(callback, "utf-8");
     writer.write(data);
     writer.close();

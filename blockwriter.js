@@ -6,7 +6,6 @@
 const { Tokenizer } = require("./tokenizer.js");
 const { Parser } = require("./parser.js");
 const { Decoder } = require("./decoder.js");
-const Blob = require("cross-blob");
 
 function createHeaderSink(callback, encoding) {
     return new Decoder(new Tokenizer(new Parser(callback)), encoding);
@@ -26,19 +25,19 @@ function createBodySink(callback, length) {
             }
             length -= written;
             if (length === 0) {
-                callback(new Blob(chunks));
+                callback(chunks);
             }
             return written;
         },
         close: () => {
-            callback(new Blob(chunks));            
+            callback(chunks);            
         }
     };
 }
 
 class BlockWriter {
     
-    constructor(callback, encoding) {
+    constructor(callback, encoding, bodyHandler) {
         this.encoding = encoding;
         this.callback = callback;
         this.sink = createHeaderSink(hdr=>this.receiveHeader(hdr), this.encoding);
