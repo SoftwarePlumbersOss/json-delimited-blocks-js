@@ -8,8 +8,8 @@ stages:
   - deploy
   
 cache:
-  - key: ${CI_COMMIT_REF_SLUG}
-  - paths:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
     - .npm/
 
 build:
