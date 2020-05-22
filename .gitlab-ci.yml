@@ -6,6 +6,10 @@ stages:
   - init
   - test
   - deploy
+  
+cache:
+  - key: ${CI_COMMIT_REF_SLUG}
+  - .npm/
 
 build:
   stage: init
@@ -16,7 +20,7 @@ build:
     - npm-cli-login 
     - cp ~/.npmrc .npmrc
     - cat .npmrc
-    - npm install
+    - npm ci --cache .npm --prefer-offline
 
 testing:
   stage: test
