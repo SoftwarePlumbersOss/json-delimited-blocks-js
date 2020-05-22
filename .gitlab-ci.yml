@@ -14,7 +14,7 @@ build:
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public  
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
-    - cp ~/npmrc .npmrc
+    - cp ~/.npmrc .npmrc
     - npm install
 
 testing:
