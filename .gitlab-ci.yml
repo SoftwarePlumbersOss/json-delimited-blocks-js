@@ -7,12 +7,7 @@ stages:
   - test
   - deploy
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}    
-  paths:
-    - node_modules/
-
-login:
+build:
   stage: init
   artifacts: 
     paths:
@@ -22,9 +17,6 @@ login:
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public  
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
-    - cp ~/.npmrc .npmrc 
-    - cat .npmrc
-    - npm cache clean --force
     - npm install
 
 testing:
