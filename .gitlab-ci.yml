@@ -10,7 +10,7 @@ stages:
 cache:
   key: ${CI_COMMIT_REF_SLUG}    
   paths:
-    - .npm/
+    - node_modules/
 
 login:
   stage: init
@@ -24,7 +24,7 @@ login:
     - npm-cli-login 
     - cp ~/.npmrc .npmrc 
     - cat .npmrc
-    - npm ci --cache .npm --prefer-offline
+    - npm install
 
 testing:
   stage: test
