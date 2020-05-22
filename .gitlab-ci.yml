@@ -9,7 +9,8 @@ stages:
   
 cache:
   - key: ${CI_COMMIT_REF_SLUG}
-  - .npm/
+  - paths:
+    - .npm/
 
 build:
   stage: init
