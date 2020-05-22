@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 const { BlockWriter } = require('./blockwriter')
+const { BlockReader } = require('./blockreader')
 const { Tokenizer } = require("./tokenizer.js");
 const { Parser } = require("./parser.js");
 const { Decoder } = require("./decoder.js");
 
-module.exports = { BlockWriter, Decoder, Parser, Tokenizer };
+module.exports = { BlockWriter, Decoder, Parser, Tokenizer, BlockReader };

@@ -37,7 +37,7 @@ function createBodySink(callback, length) {
 
 class BlockWriter {
     
-    constructor(callback, encoding, bodyHandler) {
+    constructor(callback, encoding) {
         this.encoding = encoding;
         this.callback = callback;
         this.sink = createHeaderSink(hdr=>this.receiveHeader(hdr), this.encoding);
