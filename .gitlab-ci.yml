@@ -11,7 +11,7 @@ build:
   stage: init
   script:
     - echo ${CI_PROJECT_DIR}
-    - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public  
+    - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public/  
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
     - cp ~/.npmrc .npmrc
