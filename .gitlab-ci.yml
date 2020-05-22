@@ -8,21 +8,21 @@ stages:
   - deploy
 
 cache:
+  key: ${CI_COMMIT_REF_SLUG}    
   paths:
-    - node_modules/
-    - .npmrc
+    - .npm/
 
 login:
   stage: init
+  artifacts: 
+    - .npmrc
   script:
     - echo ${CI_PROJECT_DIR}
-    - rm ~/.npmrc .npmrc || exit 0
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public  
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
-    - cat ~/.npmrc
     - cp ~/.npmrc .npmrc 
-    - npm install
+    - npm ci --cache .npm --prefer-offline
 
 testing:
   stage: test
