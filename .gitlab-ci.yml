@@ -16,6 +16,7 @@ login:
   stage: init
   script:
     - echo ${CI_PROJECT_DIR}
+    - rm .npmrc
     - npm set registry https://nexus.softwareplumbers.com/repository/npmjs-public  
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
