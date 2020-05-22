@@ -7,7 +7,7 @@
 
 /* global expect */
 
-const { BlockWriter } = require("../../blockwriter.js");
+const { BlockWriter } = require("../../index.js");
 const { getFile } = require("./utils.js");
 const { WritableStream } = require("web-streams-polyfill/ponyfill")
 
