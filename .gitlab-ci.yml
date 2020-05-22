@@ -23,6 +23,7 @@ login:
     - npm-cli-login -r https://nexus.softwareplumbers.com/repository/npmjs-public
     - npm-cli-login 
     - cp ~/.npmrc .npmrc 
+    - cat .npmrc
     - npm ci --cache .npm --prefer-offline
 
 testing:
