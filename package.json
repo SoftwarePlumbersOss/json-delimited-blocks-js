@@ -19,12 +19,11 @@
   "author": "Jonathan Essex",
   "license": "SEE LICENSE IN LICENSE.TXT",
   "devDependencies": {
+    "cross-blob": "^1.2.3",
     "jest": "^26.0.1",
     "web-streams-polyfill": "^2.1.1"
   },
-  "dependencies": {
-    "cross-blob": "^1.2.2"
-  },
+  "dependencies": {},
   "publishConfig": {
     "registry": "https://nexus.softwareplumbers.com/repository/npm-oss/"
   }
